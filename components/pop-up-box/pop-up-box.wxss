@@ -1,0 +1,65 @@
+.up-box {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.up-box, .up-dialog, .up-box, .right-dialog {
+  transition: all 0.3s;
+}
+
+.up-hidden .up-box, .right-hidden .up-box{
+  visibility: hidden;
+  opacity: 0;
+}
+
+.up-hidden .up-dialog {
+  transform: translateY(100%);
+}
+
+.right-hidden .right-dialog {
+  transform: translateX(100%);
+}
+
+
+.up-show .up-box, .right-show .up-box {
+  opacity: 1;
+  visibility: visible;
+}
+
+.up-show .up-dialog {
+  transform: translateY(0%);
+}
+
+.right-show .right-dialog {
+  transform: translateX(0%);
+}
+
+.up-dialog {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 80%;
+  z-index: 5000;
+  line-height: 1.4;
+  background-color: #fff;
+  padding: 0 20rpx;
+  padding: 0 calc(20rpx + constant(safe-area-inset-right)) constant(safe-area-inset-bottom) calc(20rpx + constant(safe-area-inset-left));
+  padding: 0 calc(20rpx + env(safe-area-inset-right)) env(safe-area-inset-bottom) calc(20rpx + env(safe-area-inset-left));
+}
+
+.right-dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 650rpx;
+  z-index: 5000;
+  line-height: 1.4;
+  background-color: #fff;
+}

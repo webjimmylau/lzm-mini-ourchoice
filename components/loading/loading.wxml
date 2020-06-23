@@ -1,0 +1,10 @@
+<block>
+  <view style="display:{{show ? '' : 'none'}};" class="loading-box {{extClass}}">
+    <view class="loadmore">
+      <view class="loading"></view>
+      <view class="load-tips">{{tips}}</view>
+    </view>
+  </view>
+  <view class="loadmore load-cy" wx:if="{{noMore}}"><text class="text" style="background-color:{{color}};">我是有底线的</text><text class="line"></text></view>
+  <view class="loadmore load-cy" wx:if="{{err}}">数据加载失败,请重试</view>
+</block>

@@ -1,0 +1,41 @@
+.sku-value {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20rpx;
+  white-space: nowrap;
+}
+.sku-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sku-left text {
+  margin-right: 10px;
+  float: left;
+}
+.skus-value {
+  display: flex;
+  border:1px solid #999;
+  min-height: 60rpx;
+  padding: 10rpx 12rpx;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10rpx 0 0;
+  font-size: 24rpx;
+  white-space:pre-wrap;
+  word-break:break-all;
+  
+}
+.stock-size {
+  font-size: 20rpx;
+  white-space:pre-wrap;
+  word-break:break-all;
+}
+.sku-value .on {
+  border:2px solid red;
+  padding: 10rpx 12rpx;
+}

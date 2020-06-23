@@ -1,0 +1,79 @@
+
+
+  <pop-up-box show="{{show}}" bindclose="close">
+    <view class="spinbox" wx:if="{{showLoading}}">
+      <view class="spin"></view>
+    </view>
+    <view class="pop-up-box" wx:if="{{show && !showLoading}}">
+      <view class="up-dialog-top">
+        <view class="sku-img">
+          <image src="{{topInfo.image ||topInfo.images[0].image }}"></image>
+        </view>
+        <view class="up-price-box">
+          <block wx:if="{{topInfo.evented}}" wx:for="{{topInfo.prices}}" wx:key="id">
+            <view class="up-price">
+              <view class="evented-price">
+                <text class="evented-tag">活动价：</text>
+                <text>¥{{item.price}}</text>
+                <text class="p-through">¥{{item.original_price}}</text>
+                <text class="evented-min">({{item.min_qty}}{{goods.unit}}起售)</text>
+              </view>
+              <view class="evented-price evented-on">
+                <text>已选择：</text>
+                <text wx:for="{{topInfo.specs}}" wx:key="id">{{item.spec_key_name}}：{{item.spec_value_name}}； </text>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{!topInfo.evented}}" wx:for="{{topInfo.prices}}" wx:key="id">
+            <view class="up-price">
+              <text>¥{{item.price}}</text>
+              <text class="up-qty" wx:if="{{ (topInfo.prices.length == 3 && index < 2) ||  (topInfo.prices.length == 2 && index < 1) }}">{{item.min_qty}} ~ {{item.max_qty}} {{goods.unit}}</text>
+              <text class="up-qty" wx:else>≥{{item.min_qty}} {{goods.unit}}</text>
+            </view>
+          </block>
+        </view>
+
+        <view class="up-dialog-close" bindtap="close" data-type="close"></view>
+      </view>
+
+      <view class="up-scroll">
+        <scroll-view scroll-y class="up-height" scroll-with-animation="true">
+          <!-- 大于1条 -->
+          <block wx:if="{{goods.specs.length > 1 || (goods.specs.length == 1 && cart)}}">
+            <view class="scroll-list" wx:for="{{!cart ? list : listEnd}}" wx:key="id">
+              <text class="scroll-key">{{ item.name }}</text>
+              <view class="scroll-text">
+                <text wx:for="{{item.values}}" wx:for-item="v" wx:for-index="i" data-key="{{item.id}}" data-value="{{i}}" wx:key="id" class="{{ v.selected && 'on' }}" bindtap="skusel">{{ v.name }}</text>
+              </view>
+            </view>
+          </block>
+          <!-- 取尾 -->
+          <block wx:if="{{!cart}}">
+            <!-- 大于1条 -->
+            <view class="scroll-list" wx:for="{{ end }}" wx:for-item="s" wx:key="id" wx:for-index="idx">
+              <text class="scroll-key">{{ s.name }}</text>
+              <view class="scroll-text-list">
+                <block wx:for="{{s.values}}" wx:for-item="v" wx:key="id" wx:for-index="i">
+                  <view>
+                    <pop-up-item keyid="{{s.id}}" keyvalidx="{{i}}" list="{{list}}" selected="{{v.selected}}" sku="{{v}}" skuArr="{{skuArr}}" bindskunum="skunum" bindskusel="skuselend" />
+                  </view>
+                </block>
+                <view class="sel-num">已选
+                  <text>{{sNum}}</text> {{goods.unit}} 共<text>￥{{price}}</text>元</view>
+              </view>
+            </view>
+            <!-- 1条 -->
+            <view wx:if="{{ end.length == 0 }}" class="sku-one">
+              <pop-up-one skuArr="{{skuArr[0]}}" unit="{{goods.unit}}" bindskunum="skunum" />
+            </view>
+          </block>
+
+        </scroll-view>
+      </view>
+
+      <view class="up-footer">
+        <view class="bar-btn buy-now" wx:if="{{type == 'one'}}" bindtap="{{buttonClicked ? '' : 'addCartOne'}}">{{buttonClicked ? '立即购买中 ...' : '立即购买'}}</view>
+        <view class="bar-btn add-cart" wx:else bindtap="{{buttonClicked ? '' : 'addCart'}}">{{buttonClicked ? '正在加入购物车 ...' : '确定加入购物车'}}</view>
+      </view>
+    </view>
+  </pop-up-box>

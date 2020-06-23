@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "pop-up-item": "/components/pop-up-item/pop-up-item",
+    "pop-up-box": "/components/pop-up-box/pop-up-box",
+    "pop-up-one": "/components/pop-up-one/pop-up-one",
+    "skeleton": "/components/skeleton/skeleton"
+  }
+}

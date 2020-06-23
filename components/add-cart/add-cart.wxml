@@ -1,0 +1,1 @@
+<pop-up showLoading="{{showLoading}}" cart="{{cart}}" shopSku="{{shopSku}}" show="{{show}}" goods="{{goods}}" skuid="{{skuid}}" type="{{type}}" bindclose="close" bindok="ok" bindonSkuId="onSkuId"></pop-up>

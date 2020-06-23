@@ -1,0 +1,4 @@
+<view class="no-data-tip">
+  <image wx:if="{{type}}" src="/images/icon-cart-no.svg"></image>
+  <text class="{{ !type && 'no-text'}}">{{title}}</text>
+</view>

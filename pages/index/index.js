@@ -56,7 +56,7 @@ Page({
     return {
       title: db.name || '纵购商城',
       path: '/pages/index/index?shopid=' + db.id + '&cityname=' + this.data.city_name,
-      imageUrl: '/image/share.png'
+      imageUrl: '/images/share.png'
     }
   },
 

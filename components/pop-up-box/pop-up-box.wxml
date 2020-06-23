@@ -1,0 +1,6 @@
+<view class="{{show ? (type == 'right' ? 'right-show' : 'up-show') :  (type == 'right' ? 'right-hidden' : 'up-hidden') }}">
+  <view class="up-box" bindtap="close" catchtouchmove="ture" data-type="close"></view>
+  <view class="{{ type == 'right' ? 'right-dialog' : 'up-dialog'}} {{extClass}}">
+    <slot></slot>
+  </view>
+</view>

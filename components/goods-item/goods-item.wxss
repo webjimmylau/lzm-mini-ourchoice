@@ -1,0 +1,14 @@
+@import "/wxss/goods-item.wxss";
+.goods-add{
+  background-color: #fabe00;
+  border-radius: 120rpx;
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goods-add image{
+  width: 32rpx;
+  height: 32rpx;
+}

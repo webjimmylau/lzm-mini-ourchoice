@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "search-input": "../../components/search-input/search-input",
+    "goods-item": "../../components/goods-item/goods-item",
+    "add-cart": "../../components/add-cart/add-cart",
+    "data-null": "../../components/data-null/data-null",
+    "loading": "../../components/loading/loading"
+  }
 }

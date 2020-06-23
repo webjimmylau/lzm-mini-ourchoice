@@ -1,0 +1,19 @@
+<view class="goods-box">
+  <navigator url="{{'/pages/goods/goods?shopid=' + item.shop_id +'&id=' + item.id +'&skuid=' + item.sku_id}}" hover-class="none">
+    <view class="goods-box-img">
+      <image lazy-load class="image-box" mode="aspectFit" src="{{item.image}}" />
+    </view>
+    <view class="goods-box-title">{{item.title}}</view>
+  </navigator>
+  <view class="goods-box-price">
+    <view class="discount-box-price">
+      <text class="p-min">¥</text>
+      <text class="p-min">{{item.price}}</text>
+      <text class="p-unit"> / {{item.unit}}</text>
+    </view>
+    <view class="goods-add" data-goodsid="{{item.id}}" bindtap="add">
+      <image src="../../images/icon-add.png" />
+    </view>
+  </view>
+
+</view>

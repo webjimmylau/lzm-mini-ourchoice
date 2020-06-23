@@ -1,0 +1,16 @@
+<view class="scroll-text-list">
+
+  <view class="sku-value">
+    <view class="sku-left">
+      <text>￥{{ price.price }}</text>
+      <text>库存{{skuArr.stock_qty}}</text>
+    </view>
+    <input-num value="{{ num }}" min="0" max="{{skuArr.stock_qty}}" bindchange="skunum" />
+  </view>
+
+
+  <view class="sel-num">已选
+    <text>{{num}}</text> {{unit}} 共<text>￥{{totalPrice}}</text>元
+  </view>
+
+</view>

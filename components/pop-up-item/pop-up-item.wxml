@@ -1,0 +1,9 @@
+
+  <view  wx:if="{{ db }}" class="sku-value">
+    <view class="sku-left" data-key="{{keyid}}" data-value="{{keyvalidx}}" catchtap="skusel">
+      <text class="skus-value {{ selected && 'on' }}">{{ sku.name }}</text>
+      <text>￥{{ price.price  }}</text>
+      <text class="stock-size">库存 {{db.stock_qty}}</text>
+    </view>
+    <input-num value="{{ num }}" min="0" max="{{db.stock_qty}}" bindchange="skunum" />
+  </view>

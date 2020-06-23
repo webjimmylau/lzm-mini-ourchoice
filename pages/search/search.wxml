@@ -1,2 +1,49 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<search-input name="{{city_name}}" value="{{value}}" focus="{{focus}}" bindconfirm="confirm" bindselectresult="selectResult" showBox="{{showBox}}" result="{{suggestions}}" bindinput="bindinput" bindclear="bindclear" bindfocus="bindfocus"
+/>
+  <view class="hot-box" wx:if="{{showBox  == 1}}">
+
+    <view class="search-result" wx:if="{{searchHistory.length > 0}}">
+      <view class="search-hot align-l search-mtop">最近搜索</view>
+      <view class="cell-box">
+        <view wx:for="{{searchHistory}}" wx:if="{{index < 10}}" wx:key="index" class="cell" data-val="{{item}}" bindtap="showInput">{{item}}</view>
+      </view>
+    </view>
+
+    <view class="search-result" wx:if="{{searchHot.length > 0}}">
+      <view class="search-hot align-l">热门搜索</view>
+      <view class="cell-box">
+        <view wx:for="{{searchHot}}" wx:key="index" class="cell" data-val="{{item.name}}" bindtap="showInput">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <block wx:if="{{showBox  == 2}}">
+    <view class="nav-box" wx:if="{{lists.length > 0 || (lists.length == 0 && sornShow) }}">
+      <view bindtap="checkShow" class="nav-li {{sortIdx < 4 ? 'on' : ''}}">{{sortIdx < 4 ? checkList[sortIdx].name : '综合排序'}}</view>
+      <view data-idx="4" bindtap="navTab" class="nav-li {{sortIdx == 4 ? 'on' : ''}}">热门</view>
+      <view bindtap="toSort" class="nav-li {{sornShow ? 'on':''}}">筛选</view>
+      <view class="check-show" wx:if="{{isCheckShow}}">
+        <block wx:for="{{checkList}}" wx:key="id">
+          <view class="check-cell {{sortIdx == item.id ? 'cell-on' : ''}}" data-idx="{{item.id}}" bindtap="navTab">{{item.name}}</view>
+        </block>
+      </view>
+    </view>
+    <loading show="{{loadingDb}}" />
+    <block  wx:if="{{!loadingDb}}">
+      <view wx:if="{{lists.length == 0 }}">
+        <data-null type="{{false}}" title="抱歉，暂无搜索结果"></data-null>
+      </view>
+      <view class="flex list-box" wx:if="{{lists.length > 0}}">
+        <scroll-view scroll-y scroll-top="{{contentScrollTop}}" class="hg" scroll-with-animation="true" bindscrolltolower="bindscrolltolower">
+          <view class="wrap-box" wx:if="{{lists.length > 0}}">
+            <block wx:for="{{lists}}" wx:key="index">
+              <goods-item item="{{item}}" bindadd="add"></goods-item>
+            </block>
+          </view>
+          <loading show="{{loading}}" noMore="{{noMore && lists.length != 0}}" color="#efeff4"/>
+        </scroll-view>
+      </view>
+
+    </block>
+    <add-cart show="{{popupShow}}" goodsid="{{goodsid}}" bindclose="close"></add-cart>
+  </block>

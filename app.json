@@ -2,9 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/cart/cart",
-    "pages/search/search",
+    "pages/list/list",
     "pages/order/order",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/search/search"
   ],
   "permission": {
     "scope.userLocation": {
@@ -35,7 +36,7 @@
       },
       {
         "text": "查找商品",
-        "pagePath": "pages/search/search",
+        "pagePath": "pages/list/list",
         "iconPath": "images/bar-search.png",
         "selectedIconPath": "images/bar-search-active.png"
       },
