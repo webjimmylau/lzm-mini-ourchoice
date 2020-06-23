@@ -1,0 +1,16 @@
+<view class="line_10" wx:if="{{showLine}}"></view>
+
+<view class="flex flex-y-center top-box">
+
+  <view class="flex logo flex-x-center flex-y-center">
+    <image class="image-box" wx:if="{{item.logo}}" mode="aspectFit" src="{{ item.logo }}" />
+    
+    <text>{{item.shop_name || item.name}}</text>
+  </view>
+
+  <view class="flex flex-y-center top-info">
+    <view class="shop-btn fav-btn {{ !favorites ? 'fav-c':''}}" data-id="{{item.id}}" data-favorites="{{item.favorited}}" bindtap="handleFavorites">{{ !favorites ? '取消收藏' : '收藏' }}</view>
+    <view class="shop-btn follow" data-id="{{item.id}}" bindtap="handleTabClick">进店</view>
+  </view>
+
+</view>

@@ -1,0 +1,79 @@
+page {
+  background-color: #f7f7f7;
+  font-size: 24rpx;
+}
+form {
+  padding: 16rpx 20rpx;
+  display: block;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: row;
+  background: #ffffff;
+  height: 64rpx;
+  border-radius: 64rpx;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.so-icon {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 60rpx 0 0  60rpx;
+  height: 64rpx;
+  font-size: 0;
+  flex: 0 0 60rpx;
+  padding-right: 10rpx;
+}
+
+.pla-class {
+  font-size: 24rpx;
+}
+
+.so-clear {
+  display: flex;
+  font-size: 0;
+  width: 80rpx;
+  height: 60rpx;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 64rpx;
+}
+.bus-title {
+  margin: 20rpx 0 0 20rpx;
+  font-size: 28rpx;
+}
+.business-areas {
+  border: 1px solid #eeeeee;
+  width: 222rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8rpx;
+  margin: 20rpx 0 0 20rpx;
+}
+.icon-location {
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: -6rpx;
+  margin-right: 12rpx;
+}
+.bus-no {
+  padding: 160rpx 0;
+  font-size: 28rpx;
+  color: #666;
+}
+.bus-no button:not([size='mini']) {
+  font-weight: initial;
+  margin-top: 20rpx;
+  padding:8rpx 20rpx;
+  width: initial;
+  font-size: 28rpx;
+}
+.weight{
+  font-weight: 700;
+}

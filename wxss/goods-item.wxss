@@ -1,0 +1,71 @@
+.goods-box {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 345rpx;
+  margin: 20rpx 0 0 20rpx;
+  border-radius: 12rpx;
+}
+
+.goods-box-img {
+  margin-right: 32rpx;
+  width: 100%;
+  height: 345rpx;
+  text-align: center;
+  border-radius: 8rpx 8rpx 0 0;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.goods-box-img image {
+  border-radius: 8rpx 8rpx 0 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.image-box {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.goods-box-title {
+  font-weight: 400;
+  font-size: 26rpx;
+  color: #333;
+  width: 310rpx;
+  height: 80rpx;
+  line-height: 40rpx;
+  margin: 20rpx auto 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.goods-box-price {
+  display: flex;
+  color: red;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 310rpx;
+  margin: 20rpx auto;
+  font-size: 30rpx;
+}
+
+.discount-box-price {
+  align-items: flex-end;
+}
+
+.p-min {
+  margin-right: 4rpx;
+}
+.p-unit {
+  color: #999;
+  font-size: 26rpx;
+}

@@ -1,3 +1,13 @@
 {
-  "usingComponents": {}
+  "navigationBarBackgroundColor": "#fabe00",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "shop-info": "../../components/shop-info/shop-info",
+    "search-input": "../../components/search-input/search-input",
+    "index-item": "../../components/index-item/index-item",
+    "promotion-item": "../../components/promotion-item/promotion-item"
+  }
 }

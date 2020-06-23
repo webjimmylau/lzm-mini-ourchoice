@@ -1,0 +1,22 @@
+<view class="promotions">
+  <view class="pro-img">
+    <image src="{{item.image}}"  mode="aspectFit"/>
+  </view>
+  <view class="pro-flex">
+    <view class="pro-title">{{item.title || item.inventory_name }}</view>
+    <view class="pro-tags">
+      <block wx:for="{{item.tags}}" wx:key="*this">
+        <text>{{item}}</text>
+      </block>
+    </view>
+    <view class="pro-price">
+      <view class="box-price">
+        <text class="p-min">¥</text>
+        <text class="p-max">{{item.price}}</text>
+        <text class="p-min-unit" wx:if="{{item.unit}}">/{{item.unit}}</text> 
+        <text class="p-decoration">¥{{item.original_price}}</text>
+      </view>
+      <navigator class="pro-btn" url="{{'/pages/goods/goods?shopid=' + shopid +'&id=' + item.id +'&skuid=' + item.sku_id}}" hover-class="none">马上抢购</navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "选择商圈店铺",
+  "component": true,
+  "usingComponents": {
+    "shop-item": "/components/shop-item/shop-item"
+  }
+}

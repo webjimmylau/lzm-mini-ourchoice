@@ -1,2 +1,83 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<block wx:if="{{ db.error_code == 0 }}">
+  <shop-info logo="{{db.logo}}" name="{{db.name}}" favorited="{{db.favorited}}" shopid="{{db.id}}" />
+  <block wx:if="{{ db.shop_status == 0 }}">
+
+    <view class="flex flex-x-center flex-y-center index-soso">
+      <view bindtap="toBus" class="sel-adr">{{ city_name }}</view>
+      <navigator class="so" url="/pages/search/search?soso=1">
+        <icon class="so-icon" type="search" size="16" />
+        <text>请输入商品关键词或型号</text>
+      </navigator>
+
+      <button open-type="contact" hover-class="none">
+        <image class="icon-msg-idx" src="/images/icon-msg.svg" />
+      </button>
+    </view>
+
+
+    <swiper class="swiper-box" indicator-color="rgba(0, 0, 0, .1)" current="{{current}}" indicator-active-color="#ffffff" indicator-dots autoplay circular>
+        <block wx:for="{{db.slides}}" wx:key="id">
+          <swiper-item>
+            <image class="swiper-image" data-shopid="{{db.id}}" mode="aspectFit" data-item="{{item}}" catchtap="toAd" style="background:{{ item.background_color }}" src="{{item.image}}" />
+          </swiper-item>
+        </block>
+    </swiper>
+
+
+    <view class="flex shop-categories flex-wrap" wx:if="{{db.shop_categories.length > 0}}">
+      <block wx:for="{{db.shop_categories}}" wx:key="id">
+        <view data-key="category" data-val="{{item.id}}" data-name="{{item.name}}" bindtap="toSearch" class="flex flex-col flex-y-center categories-item">
+          <image src="{{item.image}}"></image>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+
+    <block wx:if="{{db.promotions}}">
+      <view class="flex flex-y-center discount" wx:if="{{db.promotions.length > 0}}">
+        <text>限时抢购</text>
+        <navigator class="discount-title" url="/pages/promotion/promotion" hover-class="none">
+          更多好货限时抢
+        </navigator>
+      </view>
+
+      <view class="flex flex-col">
+        <block wx:for="{{db.promotions}}" wx:key="sku_id">
+          <promotion-item item="{{item}}" shopid="{{db.id}}" />
+        </block>
+      </view>
+    </block>
+
+    <view class="flex flex-x-center item-title" wx:if="{{db.recommand_goods.length > 0}}">
+      <text>推荐商品</text>
+    </view>
+
+    <view class="wrap-box">
+      <block wx:for="{{db.recommand_goods}}" wx:key="id">
+        <index-item item="{{item}}" shopid="{{db.id}}" />
+      </block>
+    </view>
+
+    <view class="flex flex-x-center item-title" wx:if="{{db.recommand_new_goods.length > 0}}">
+      <text>新品推荐</text>
+    </view>
+
+    <view class="wrap-box">
+      <block wx:for="{{db.recommand_new_goods}}" wx:key="id">
+        <index-item item="{{item}}" shopid="{{db.id}}" />
+      </block>
+    </view>
+
+    <view class="flex flex-x-center item-title bt20" data-key="page" data-val="1" catchtap="toSearch">
+      <text>查看全部商品</text>
+    </view>
+
+  </block>
+
+  <view wx:else class="flex flex-col flex-y-center flex-x-center shop-off">
+    <image class="image-box" src="/images/icon-shop-off.png" />
+    <text class="off-title">店铺暂停营业</text>
+    <text>如有不便，敬请谅解</text>
+    <view class="off-btn" bindtap="toBus">查找其它店铺</view>
+  </view>
+</block>

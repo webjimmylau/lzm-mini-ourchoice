@@ -1,0 +1,23 @@
+<view class="flex flex-x-center flex-y-center index-soso" wx:if="{{name}}">
+  <view bindtap="toBusiness" class="sel-adr">{{ name }}</view>
+
+  <view class="so">
+    <icon class="so-icon" type="search" size="16" />
+    <view style="width:100%">
+      <input value="{{ value }}" class="search-input" bindconfirm="inputConfirm" confirm-type="search" placeholder="请输入商品关键词、属性或型号" bindfocus="inputFocus" bindblur="inputBlur" placeholder-class="pla-class" focus="{{focus}}" bindinput="inputChange" />
+    </view>
+    <view wx:if="{{value.length > 0}}" bindtap="clearInput" class="icon-clear">
+      <icon type="clear" size="20" />
+    </view>
+  </view>
+
+  <button open-type="contact" hover-class="none">
+    <image class="icon-msg-idx" src="/images/icon-msg.svg" />
+  </button>
+</view>
+
+<view class="search-result" wx:if="{{showBox == 3 && result.length > 0}}">
+  <view class="cell-box">
+    <view class="cell-x" data-index="{{index}}" wx:for="{{result}}" bindtap="selectResult">{{item.name}}</view>
+  </view>
+</view>

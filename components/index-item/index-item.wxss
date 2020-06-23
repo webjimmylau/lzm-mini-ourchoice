@@ -1,0 +1,10 @@
+@import "/wxss/goods-item.wxss";
+
+.goods-box {
+  margin: 20rpx 0 0 0;
+}
+
+.goods-sold {
+  color: #999;
+  font-size: 26rpx;
+}

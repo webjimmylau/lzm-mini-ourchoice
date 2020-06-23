@@ -1,0 +1,13 @@
+<view class="top-box">
+  <view class="logo">
+    <image class="skeleton-rect" mode="aspectFit" src="{{ logo }}" />
+    <text class="skeleton-rect">{{name}}</text>
+  </view>
+  <view class="top-info">
+    <image class="skeleton-rect" src="/images/icon-sh.svg" />
+    <text class="skeleton-rect">品质担保</text>
+    <image class="icon-sv skeleton-rect" src="/images/icon-sv.svg" />
+    <text class="skeleton-rect">售后无忧</text>
+    <view class="follow skeleton-rect {{favorited ? 'follow-on' : ''}}" data-shopid="{{shopid}}" bindtap="handleFavorites">关注</view>
+  </view>
+</view>

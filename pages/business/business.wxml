@@ -1,0 +1,42 @@
+<form>
+  <view class="search-box">
+    <view class="so-icon">
+      <icon type="search" size="16" />
+    </view>
+    <view style="width:100%">
+      <input style="width: 100%" value="{{key}}" confirm-type="search" class="search-input" bindconfirm="inputConfirm" confirm-type="search" placeholder="城市名称 / 店铺名称" bindinput="bindKeyInput" bindfocus="inputFocus" bindblur="inputBlur" placeholder-class="pla-class"
+      />
+    </view>
+    <view class="so-clear" wx:if="{{key}}" bindtap="searchCancel">
+      <icon type="clear" size="20" />
+    </view>
+  </view>
+</form>
+
+<block wx:if="{{ loading }}">
+  <block wx:if="{{city_name}}">
+      <view class="bus-title">当前定位</view>
+      <view class="business-areas">
+        <image class="icon-location" src="/images/icon-location.png" />{{city_name}}</view>
+  </block>
+
+  <block wx:if="{{ (location || key) && shops.length > 0}}">
+    <view wx:for="{{shops}}" wx:key="*this">
+      <shop-item item='{{item}}' bindtabclick="tabclick"/>
+    </view>
+  </block>
+  <view wx:if="{{!key && location && shops.length == 0}}" class="flex flex-col flex-y-center bus-no">{{noCityName}}商圈暂未开展业务，请选择其它商圈，谢谢</view>
+  <view wx:if="{{key && shops.length == 0}}" class="flex flex-col flex-y-center bus-no">抱歉，暂无搜索结果</view>
+  <view wx:if="{{!key && !location}}" class="flex flex-col flex-y-center bus-no">
+    <text class="weight">定位服务未失败！</text><text>请手机设置中开启微信APP的定位服务，</text><text>同时请在小程序中开通【定位服务】权限。</text>
+    <button type="primary" open-type="openSetting">开通定位权限</button>
+  </view>
+</block>
+<block wx:if="{{business_areas.length > 0}}">
+  <view class="bus-title">热门商圈</view>
+  <view class="flex flex-wrap bt20">
+    <block wx:for="{{business_areas}}" wx:key="*this">
+      <view class="business-areas" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="bindtap">{{item.name}}</view>
+    </block>
+  </view>
+</block>
