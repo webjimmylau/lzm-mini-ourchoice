@@ -1,13 +1,57 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/cart/cart",
+    "pages/search/search",
+    "pages/order/order",
+    "pages/user/user"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取您的位置，为您定位当前商圈"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "众购商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#fabe00",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/bar-shop.png",
+        "selectedIconPath": "images/bar-shop-active.png"
+      },
+      {
+        "text": "购物车",
+        "pagePath": "pages/cart/cart",
+        "iconPath": "images/bar-cart.png",
+        "selectedIconPath": "images/bar-cart-active.png"
+      },
+      {
+        "text": "查找商品",
+        "pagePath": "pages/search/search",
+        "iconPath": "images/bar-search.png",
+        "selectedIconPath": "images/bar-search-active.png"
+      },
+      {
+        "text": "订单",
+        "pagePath": "pages/order/order",
+        "iconPath": "images/bar-order.png",
+        "selectedIconPath": "images/bar-order-active.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/user/user",
+        "iconPath": "images/bar-user.png",
+        "selectedIconPath": "images/bar-user-active.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
